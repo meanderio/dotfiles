@@ -1,7 +1,7 @@
 eval "$(zoxide init zsh --cmd cd)"
+
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-eval "$(starship init zsh)"
 
 # eza ( better 'ls')
 alias l="eza --icons"
@@ -19,4 +19,7 @@ export FZF_CTRL_T_OPTS="
 
 export FZF_ALT_C_OPTS="
 --preview 'tree -C {}'"
+
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init zsh)"
 
