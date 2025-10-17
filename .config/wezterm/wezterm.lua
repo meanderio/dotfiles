@@ -4,7 +4,7 @@ local config = wezterm.config_builder()
 config.color_scheme = 'Catppuccin Mocha'
 
 config.font = wezterm.font(
-  "JetBrainsMono Nerd Font Mono", 
+  "JetBrainsMono Nerd Font Mono",
   {
     weight="Medium", 
     stretch="Normal", 
