@@ -5,7 +5,9 @@ return {
   },
   {
     "mason-org/mason-lspconfig.nvim",
-    opts = {},
+    opts = {
+      auto_install = true,
+    },
     dependencies = {
       { "mason-org/mason.nvim", opts = {} },
       "neovim/nvim-lspconfig",
