@@ -14,4 +14,4 @@ vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 vim.keymap.set({"n", "v"}, "<leader>ca", vim.lsp.buf.code_action, {})
 
 vim.keymap.set("i", "<C-,>", "<C-o>j")
-vim.keymap.set("i", "<C-p>", "<C-o>k")
+vim.keymap.set("i", "<C-.>", "<C-o>k")
