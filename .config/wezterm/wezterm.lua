@@ -6,8 +6,8 @@ config.color_scheme = 'Catppuccin Mocha'
 config.font = wezterm.font(
   "JetBrainsMono Nerd Font Mono",
   {
-    weight="Medium", 
-    stretch="Normal", 
+    weight="Medium",
+    stretch="Normal",
     style="Normal"
   }
 )
@@ -29,5 +29,36 @@ tabline.setup({
     theme = "Catppuccin Mocha"
   }
 })
+
+--config.leader = { key = 'a', mods = 'CTRL' }
+
+config.keys = {
+  {
+    key = 'w',
+    mods = 'CTRL',
+    action = wezterm.action.CloseCurrentPane { confirm = false },
+  },
+  {
+    key = 'h',
+    mods = 'CMD|SHIFT',
+    action = wezterm.action.ActivatePaneDirection('Left')
+  },
+  {
+    key = 'j',
+    mods = 'CMD|SHIFT',
+    action = wezterm.action.ActivatePaneDirection('Down')
+  },
+  {
+    key = 'k',
+    mods = 'CMD|SHIFT',
+    action = wezterm.action.ActivatePaneDirection('Up')
+  },
+  {
+    key = 'l',
+    mods = 'CMD|SHIFT',
+    action = wezterm.action.ActivatePaneDirection('Right')
+  },
+}
+
 return config
 

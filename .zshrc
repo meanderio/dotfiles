@@ -23,3 +23,4 @@ export FZF_ALT_C_OPTS="
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
 
+export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
