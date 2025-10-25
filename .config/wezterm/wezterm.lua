@@ -30,7 +30,7 @@ tabline.setup({
   }
 })
 
---config.leader = { key = 'a', mods = 'CTRL' }
+config.leader = { key = 'a', mods = 'CTRL' }
 
 config.keys = {
   {
@@ -57,6 +57,16 @@ config.keys = {
     key = 'l',
     mods = 'CMD|SHIFT',
     action = wezterm.action.ActivatePaneDirection('Right')
+  },
+  {
+    key = 'd',
+    mods = 'LEADER',
+    action = wezterm.action.SplitVertical
+  },
+  {
+    key = 'f',
+    mods = 'LEADER',
+    action = wezterm.action.SplitHorizontal
   },
 }
 
