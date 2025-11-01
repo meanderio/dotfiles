@@ -9,7 +9,24 @@ return {
     },
     lazy = false,
     enabled = true,
-    config = function()
+    opts = {
+      event_handlers = {
+        {
+          event = "file_open_requested",
+          handler = function ()
+            require("neo-tree.command").execute({ action = "close" })
+          end
+        },
+      },
+      filesystem = {
+        filtered_items = {
+          visible = true,
+          hide_dotfiles = false,
+        },
+      },
+    },
+    config = function(_, opts)
+      require("neo-tree").setup(opts)
       vim.keymap.set("n", "<leader>n", ":Neotree filesystem reveal left<CR>")
     end
   }
