@@ -30,7 +30,7 @@ tabline.setup({
   }
 })
 
-config.leader = { key = 'a', mods = 'CTRL' }
+config.leader = { key = 'i', mods = 'CTRL' }
 
 config.keys = {
   {

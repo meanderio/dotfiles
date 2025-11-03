@@ -1,21 +1,40 @@
-require("mndr")
-require("config.lazy")
-require("config.lsp")
+require 'core.options' -- Load general options
+require 'core.keymaps' -- Load general keymaps
+require 'core.snippets' -- Custom code snippets
 
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
+-- Set up the Lazy plugin manager
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
+  if vim.v.shell_error ~= 0 then
+    error('Error cloning lazy.nvim:\n' .. out)
+  end
+end
+vim.opt.rtp:prepend(lazypath)
 
-vim.wo.number = true
-vim.wo.relativenumber = true
+-- Set up plugins
+require('lazy').setup {
+  performance = {
+    rtp = {
+      reset = false,
+    },
+  },
+  require 'plugins.neotree',
+  require 'plugins.colortheme',
+  require 'plugins.bufferline',
+  require 'plugins.lualine',
+  require 'plugins.treesitter',
+  require 'plugins.telescope',
+  require 'plugins.lsp',
+  require 'plugins.autocompletion',
+  require 'plugins.none-ls',
+  require 'plugins.gitsigns',
+  require 'plugins.alpha',
+  require 'plugins.indent-blankline',
+  require 'plugins.misc',
+  require 'plugins.comment',
+}
 
-vim.opt.winborder = 'rounded'
-
---vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
---vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
---vim.keymap.set({"n", "v"}, "<leader>ca", vim.lsp.buf.code_action, {})
-
-vim.keymap.set("i", "<C-,>", "<C-o>j")
-vim.keymap.set("i", "<C-.>", "<C-o>k")
-
+-- The line beneath this is called `modeline`. See `:help modeline`
+-- vim: ts=2 sts=2 sw=2 et
