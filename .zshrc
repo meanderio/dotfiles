@@ -28,4 +28,9 @@ export FZF_ALT_C_OPTS="
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
 
+# default editor
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+# update PATH
 export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
