@@ -744,6 +744,30 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
+        yamlls = {
+          settings = {
+            yaml = {
+              --schemas = {
+              --  ['https://raw.githubusercontent.com/awslabs/goformation/master/schema/cloudformation.json'] = '/*.yaml',
+              --},
+              customTags = {
+                '!Ref',
+                '!Sub scalar',
+                '!Sub mapping',
+                '!FindInMap scalar',
+                '!GetAtt',
+                '!GetAZs',
+                '!ImportValue',
+                '!Join',
+                '!Base64',
+                '!Cidr',
+              },
+              --schemaStore = {
+              --  enable = true,
+              --},
+            },
+          },
+        },
         pylsp = {
           settings = {
             pylsp = {
@@ -845,7 +869,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { 'isort', 'black' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
