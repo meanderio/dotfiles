@@ -747,9 +747,6 @@ require('lazy').setup({
         yamlls = {
           settings = {
             yaml = {
-              --schemas = {
-              --  ['https://raw.githubusercontent.com/awslabs/goformation/master/schema/cloudformation.json'] = '/*.yaml',
-              --},
               customTags = {
                 '!Ref',
                 '!Sub scalar',
@@ -762,9 +759,6 @@ require('lazy').setup({
                 '!Base64',
                 '!Cidr',
               },
-              --schemaStore = {
-              --  enable = true,
-              --},
             },
           },
         },
@@ -830,9 +824,13 @@ require('lazy').setup({
             -- certain features of an LSP (for example, turning off formatting for ts_ls)
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
+            --vim.lsp.enable(server_name)
           end,
         },
       }
+      for name, config in pairs(servers) do
+        vim.lsp.config(name, config)
+      end
     end,
   },
 
