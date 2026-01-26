@@ -260,6 +260,11 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+vim.keymap.set({ 'v', 'i' }, '<C-h>', '<Left>', { noremap = true, silent = true })
+vim.keymap.set({ 'v', 'i' }, '<C-j>', '<Down>', { noremap = true, silent = true })
+--vim.keymap.set({ 'v', 'i' }, '<C-k>', '<Up>', { noremap = true, silent = true })
+vim.keymap.set({ 'v', 'i' }, '<C-l>', '<Right>', { noremap = true, silent = true })
+
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
 -- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
@@ -934,6 +939,8 @@ require('lazy').setup({
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
         preset = 'default',
+        --['<C-k>'] = {},
+        --['<C-v>'] = { 'show_signature', 'hide_signature', 'fallback' },
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
@@ -970,7 +977,7 @@ require('lazy').setup({
       fuzzy = { implementation = 'lua' },
 
       -- Shows a signature help window while you type arguments for a function
-      signature = { enabled = true },
+      signature = { enabled = true, window = { border = 'rounded', show_documentation = false } },
     },
   },
 
