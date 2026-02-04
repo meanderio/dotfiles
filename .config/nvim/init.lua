@@ -337,6 +337,13 @@ require('lazy').setup({
   -- options to `gitsigns.nvim`.
   --
   -- See `:help gitsigns` to understand what the configuration keys do
+  {
+    'OXY2DEV/markview.nvim',
+    lazy = false,
+
+    -- Completion for `blink.cmp`
+    dependencies = { 'saghen/blink.cmp' },
+  },
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
@@ -754,15 +761,22 @@ require('lazy').setup({
             yaml = {
               customTags = {
                 '!Ref',
-                '!Sub scalar',
-                '!Sub mapping',
-                '!FindInMap scalar',
+                '!Sub',
+                '!FindInMap',
                 '!GetAtt',
                 '!GetAZs',
                 '!ImportValue',
                 '!Join',
                 '!Base64',
                 '!Cidr',
+                '!If',
+                '!If sequence',
+                '!Equals',
+                '!Equals sequence',
+              },
+              schemaStore = {
+                enable = true,
+                url = 'https://raw.githubusercontent.com/awslabs/goformation/master/schema/cloudformation.schema.json',
               },
             },
           },
@@ -829,7 +843,7 @@ require('lazy').setup({
             -- certain features of an LSP (for example, turning off formatting for ts_ls)
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
-            --vim.lsp.enable(server_name)
+            vim.lsp.enable(server_name)
           end,
         },
       }
