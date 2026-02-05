@@ -760,8 +760,11 @@ require('lazy').setup({
           settings = {
             yaml = {
               customTags = {
+                '!Not',
+                '!Not sequence',
                 '!Ref',
                 '!Sub',
+                '!Sub sequence',
                 '!FindInMap',
                 '!GetAtt',
                 '!GetAZs',
